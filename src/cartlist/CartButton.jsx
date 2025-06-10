@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-const CartButton = ({ setCart }) => {
+const CartButton = ({ cart, setCart, eachCartItem }) => {
   const [count, setCount] = useState(1);
-  if (!count) setCart('');
+  if (count < 1) setCart(cart.filter(item => item.id !== eachCartItem.id));
   return (
     <>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <button className='decrement' onClick={() => setCount(count - 1)}>-</button>
       {count}
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button className='increment' onClick={() => setCount(count + 1)}>+</button>
     </>
   )
 }

@@ -14,3 +14,13 @@ ul {
   flex-wrap: wrap;
   padding-left: 0px;
 }
+
+.decrement {
+  width: 5em;
+  margin-right: 20px;
+}
+
+.increment {
+  width: 5em;
+  margin-left: 20px;
+}

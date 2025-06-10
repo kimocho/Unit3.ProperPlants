@@ -1,7 +1,7 @@
 import CartButton from "./CartButton";
 
 const CartDisplay = ({ cart, setCart }) => {
-  if (!cart) return (
+  if (cart.length < 1) return (
     <>
       <h2>Cart</h2>
       <p>Your cart is empty.</p>
@@ -11,8 +11,14 @@ const CartDisplay = ({ cart, setCart }) => {
     <section>
       <h2>Cart</h2>
       <aside>
-        {cart.image} {cart.name}
-        <CartButton setCart={setCart} />
+        {cart.map((eachCartItem) => (
+          <>
+            <p>{eachCartItem.image}</p>
+            <p>{eachCartItem.name}</p>
+            <CartButton cart={cart} setCart={setCart} eachCartItem={eachCartItem} />
+          </>
+        ))}
+
       </aside>
     </section>
   )
